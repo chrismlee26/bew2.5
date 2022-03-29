@@ -17,48 +17,61 @@ import (
 // 	year  int
 // )
 
-// const (
-// 	jan = iota + 1
-// 	feb
-// 	mar
-// 	apr
-// 	may
-// 	jun
-// 	jul
-// 	aug
-// 	sep
-// 	oct
-// 	nov
-// 	dec
-// )
+const (
+	jan = iota + 1
+	feb
+	mar
+	apr
+	may
+	jun
+	jul
+	aug
+	sep
+	oct
+	nov
+	dec
+)
 
-// const (
-// 	january = iota + 1
-// 	february
-// 	march
-// 	april
-// 	june
-// 	july
-// 	august
-// 	september
-// 	october
-// 	november
-// 	december
-// )
+const (
+	january   = jan
+	february  = feb
+	march     = mar
+	april     = apr
+	june      = jun
+	july      = jul
+	august    = aug
+	september = sep
+	october   = oct
+	november  = nov
+	december  = dec
+)
 
 func main() {
 	reader := bufio.NewReader(os.Stdin)
-	t := time.Now()
-	// current_time := fmt.Sprintf("%d-%02d-%02d",
-	// 	t.Year(), t.Month(), t.Day())
+	// Time Library
+	current_date := time.Now().Format("2006-1-02")
+	// fmt.Println(current_date.Format("2006-1-02"), '\n')
+	fmt.Println(current_date, "~~~~~~~~~~~")
 
-	fmt.Println(t.Format("2006-1-02"), '\n')
+	// Testing Variables
+	fmt.Printf("%02d, %02d, %02d, %02d", jan, dec, july, nov)
+	// ---------------
+	// Convert time to string & split
+	// current_date_string := current_date.String()
+	// current_year := strings.Split(current_date_string, "-")
+	// fmt.Println(current_year)
 
-	fmt.Println("Hello, \nWhat year were you born in?")
+	fmt.Println("\n Hello, \nWhat year were you born in?")
 	year, _ := reader.ReadString('\n')
 	fmt.Println("What month were you born in?")
 	month, _ := reader.ReadString('\n')
 	fmt.Printf("What day of %s? ", strings.TrimSpace(month))
 	day, _ := reader.ReadString('\n')
-	fmt.Printf("Your birthdate is %s %s %s", strings.TrimSpace(day), strings.TrimSpace(month), year)
+	// Remove this line
+	fmt.Printf("Your birthdate is %s %s %s", strings.TrimSpace(year), strings.TrimSpace(month), day)
+	// Take this string & measure against 'current_date'
+	birth_date := strings.TrimSpace(year) + "-" + strings.TrimSpace(month) + "-" + day
+	fmt.Println(birth_date)
+
+	// Return "age"
 }
