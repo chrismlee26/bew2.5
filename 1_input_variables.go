@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -48,36 +49,37 @@ const (
 
 func main() {
 	reader := bufio.NewReader(os.Stdin)
-	// Time Library
+	// Create Time & Format output
 	current_date := time.Now().Format("2006-1-02")
-	// fmt.Println(current_date.Format("2006-1-02"), '\n')
-	fmt.Println(current_date, "~~~~~~~~~~~")
-	// Split Date into strings array
+	// Split Time into date strings array
 	date_strings := strings.Split(current_date, "-")
-	// Define Date Strings
-	var current_year = date_strings[0]
-	var current_month = date_strings[1]
-	var current_day = date_strings[2]
+	// Split and convert date into int
+	current_year, _ := strconv.ParseInt(date_strings[0], 10, 64)
+	current_month, _ := strconv.ParseInt(date_strings[1], 10, 64)
+	current_day, _ := strconv.ParseInt(date_strings[2], 10, 64)
 
-	fmt.Println(current_year, "------")
-	fmt.Println(current_month, "------")
-	fmt.Println(current_day, "------")
+	fmt.Println(current_year, current_month, current_day)
 
-	// Testing Month Variables
-	// fmt.Printf("%02d, %02d, %02d, %02d", jan, dec, july, nov)
-	// ---------------
 	fmt.Print("\n")
 	fmt.Println("Hello, \nWhat year were you born in?")
-	year, _ := reader.ReadString('\n')
+	user_year, _ := reader.ReadString('\n')
+	// parse user input string => int
 	fmt.Println("What month were you born in?")
-	month, _ := reader.ReadString('\n')
-	fmt.Printf("What day of %s? ", strings.TrimSpace(month))
-	day, _ := reader.ReadString('\n')
+	user_month, _ := reader.ReadString('\n')
+	// If input === month, mon, convert to #
+	// fmt.Printf("%02d, %02d, %02d, %02d", jan, dec, july, nov)
+	// If input from user string is ##, => Parse int
+	fmt.Printf("What day of %s? ", strings.TrimSpace(user_month))
+	user_day, _ := reader.ReadString('\n')
+	// parse user input string => int
+
 	// Remove this line
-	fmt.Printf("Your birthdate is %s %s %s", strings.TrimSpace(year), strings.TrimSpace(month), day)
+	fmt.Printf("Your birthdate is %s %s %s", strings.TrimSpace(user_year), strings.TrimSpace(user_month), user_day)
 	// Take this string & measure against 'current_date'
-	birth_date := strings.TrimSpace(year) + "-" + strings.TrimSpace(month) + "-" + day
+
+	birth_date := strings.TrimSpace(user_year) + "-" + strings.TrimSpace(user_month) + "-" + user_day
 	fmt.Println(birth_date)
 
-	// Return "age"
+	// Return "DOB YYYY-mm-dd"
+
 }
