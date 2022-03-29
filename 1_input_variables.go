@@ -4,9 +4,8 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-
-	// "time"
 	"strings"
+	"time"
 )
 
 // 1. Write a program that calculates the birth year using a provided date of birth and age. HINT: Get the date of birth and age from stdin!
@@ -49,6 +48,11 @@ import (
 
 func main() {
 	reader := bufio.NewReader(os.Stdin)
+	t := time.Now()
+	// current_time := fmt.Sprintf("%d-%02d-%02d",
+	// 	t.Year(), t.Month(), t.Day())
+
+	fmt.Println(t.Format("2006-1-02"), '\n')
 
 	fmt.Println("Hello, \nWhat year were you born in?")
 	year, _ := reader.ReadString('\n')
