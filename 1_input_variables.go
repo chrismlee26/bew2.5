@@ -52,16 +52,22 @@ func main() {
 	current_date := time.Now().Format("2006-1-02")
 	// fmt.Println(current_date.Format("2006-1-02"), '\n')
 	fmt.Println(current_date, "~~~~~~~~~~~")
+	// Split Date into strings array
+	date_strings := strings.Split(current_date, "-")
+	// Define Date Strings
+	var current_year = date_strings[0]
+	var current_month = date_strings[1]
+	var current_day = date_strings[2]
 
-	// Testing Variables
-	fmt.Printf("%02d, %02d, %02d, %02d", jan, dec, july, nov)
+	fmt.Println(current_year, "------")
+	fmt.Println(current_month, "------")
+	fmt.Println(current_day, "------")
+
+	// Testing Month Variables
+	// fmt.Printf("%02d, %02d, %02d, %02d", jan, dec, july, nov)
 	// ---------------
-	// Convert time to string & split
-	// current_date_string := current_date.String()
-	// current_year := strings.Split(current_date_string, "-")
-	// fmt.Println(current_year)
-
-	fmt.Println("\n Hello, \nWhat year were you born in?")
+	fmt.Print("\n")
+	fmt.Println("Hello, \nWhat year were you born in?")
 	year, _ := reader.ReadString('\n')
 	fmt.Println("What month were you born in?")
 	month, _ := reader.ReadString('\n')
