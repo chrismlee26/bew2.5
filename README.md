@@ -12,6 +12,7 @@ $ go run file_name.go
 
 Assignment #1: `1_input_variables.go`
 _Read: [Keyboard Input](https://golangr.com/keyboard-input/#Keyboard-input-in-golang) on how to read from `stdin`_
+
 _Read: [Variables](https://golangr.com/variables/) to complete the assignment_
 
 ```
