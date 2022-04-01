@@ -61,23 +61,29 @@ func main() {
 	fmt.Println(current_year, current_month, current_day)
 
 	fmt.Print("\n")
-	fmt.Println("Hello, \nWhat year were you born in?")
-	user_year, _ := reader.ReadString('\n')
-	// parse user input string => int
+	fmt.Println("Hello, \nWhat's your age?")
+	user_age, _ := reader.ReadString('\n')
+	// ??? Convert String to Int
+	int_user_age, _ := strconv.ParseInt(user_age, 10, 64)
+
+	fmt.Printf("%d", int_user_age)
+	fmt.Print("\n")
+
 	fmt.Println("What month were you born in?")
 	user_month, _ := reader.ReadString('\n')
 	// If input === month, mon, convert to #
 	// fmt.Printf("%02d, %02d, %02d, %02d", jan, dec, july, nov)
-	// If input from user string is ##, => Parse int
 	fmt.Printf("What day of %s? ", strings.TrimSpace(user_month))
 	user_day, _ := reader.ReadString('\n')
-	// parse user input string => int
+
+	// birth_year := (current_year - age)
 
 	// Remove this line
-	fmt.Printf("Your birthdate is %s %s %s", strings.TrimSpace(user_year), strings.TrimSpace(user_month), user_day)
+	// fmt.Printf("Your birthdate is %s %s %s", birth_year, strings.TrimSpace(user_month), user_day)
+	fmt.Printf("Your birthdate is %s %s %s", strings.TrimSpace(user_age), strings.TrimSpace(user_month), user_day)
 	// Take this string & measure against 'current_date'
 
-	birth_date := strings.TrimSpace(user_year) + "-" + strings.TrimSpace(user_month) + "-" + user_day
+	birth_date := strings.TrimSpace(user_age) + "-" + strings.TrimSpace(user_month) + "-" + user_day
 	fmt.Println(birth_date)
 
 	// Return "DOB YYYY-mm-dd"
