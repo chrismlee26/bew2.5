@@ -58,15 +58,15 @@ func main() {
 	current_month, _ := strconv.ParseInt(date_strings[1], 10, 64)
 	current_day, _ := strconv.ParseInt(date_strings[2], 10, 64)
 
-	fmt.Println(current_year, current_month, current_day)
+	fmt.Println(current_year, current_month, current_day, "~~~~ today's date for testing ~~~~")
 
 	fmt.Print("\n")
 	fmt.Println("Hello, \nWhat's your age?")
 	user_age, _ := reader.ReadString('\n')
 	// ??? Convert String to Int
-	int_user_age, _ := strconv.ParseInt(user_age, 10, 64)
+	int_user_age, _ := strconv.ParseInt(strings.TrimSpace(user_age), 10, 64)
 
-	fmt.Printf("%d", int_user_age)
+	fmt.Printf("Your int age is: %d", int_user_age)
 	fmt.Print("\n")
 
 	fmt.Println("What month were you born in?")
