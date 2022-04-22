@@ -55,37 +55,32 @@ func main() {
 	date_strings := strings.Split(current_date, "-")
 	// Split and convert date into int
 	current_year, _ := strconv.ParseInt(date_strings[0], 10, 64)
-	current_month, _ := strconv.ParseInt(date_strings[1], 10, 64)
-	current_day, _ := strconv.ParseInt(date_strings[2], 10, 64)
+	// current_month, _ := strconv.ParseInt(date_strings[1], 10, 64)
+	// current_day, _ := strconv.ParseInt(date_strings[2], 10, 64)
 
-	fmt.Println(current_year, current_month, current_day, "~~~~ today's date for testing ~~~~")
+	// Test for time.Now() output
+	// fmt.Println(current_year, current_month, current_day, "~~~~ today's date for testing ~~~~")
+	// fmt.Print("\n")
 
-	fmt.Print("\n")
+	// Get User Input
 	fmt.Println("Hello, \nWhat's your age?")
 	user_age, _ := reader.ReadString('\n')
-	// ??? Convert String to Int
 	int_user_age, _ := strconv.ParseInt(strings.TrimSpace(user_age), 10, 64)
 
-	fmt.Printf("Your int age is: %d", int_user_age)
+	// Test print of user_age input (Remove after)
+	// fmt.Printf("Your age is: %d", int_user_age)
 	fmt.Print("\n")
 
 	fmt.Println("What month were you born in?")
 	user_month, _ := reader.ReadString('\n')
+
+	// Take user input of month in string(##) or mon or MONTH and convert to int
 	// If input === month, mon, convert to #
 	// fmt.Printf("%02d, %02d, %02d, %02d", jan, dec, july, nov)
+
 	fmt.Printf("What day of %s? ", strings.TrimSpace(user_month))
 	user_day, _ := reader.ReadString('\n')
 
-	// birth_year := (current_year - age)
-
-	// Remove this line
-	// fmt.Printf("Your birthdate is %s %s %s", birth_year, strings.TrimSpace(user_month), user_day)
-	fmt.Printf("Your birthdate is %s %s %s", strings.TrimSpace(user_age), strings.TrimSpace(user_month), user_day)
-	// Take this string & measure against 'current_date'
-
-	birth_date := strings.TrimSpace(user_age) + "-" + strings.TrimSpace(user_month) + "-" + user_day
-	fmt.Println(birth_date)
-
-	// Return "DOB YYYY-mm-dd"
-
+	birth_year := current_year - int_user_age
+	fmt.Printf("Your birthdate is %d %s %s", birth_year, strings.TrimSpace(user_month), user_day)
 }
